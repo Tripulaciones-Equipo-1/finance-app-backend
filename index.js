@@ -24,4 +24,6 @@ app.use(express.json());
 
 app.use(typeError);
 
+app.use("/account", require("./routes/account.routes"));
+
 runServer();
