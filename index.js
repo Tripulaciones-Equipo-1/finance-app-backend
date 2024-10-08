@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const dbConnection = require("./config/database");
-const { typeError } = require("./middleware/errors");
+const { typeError } = require("./middlewares/errors");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +21,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
+
+app.use ('/users', require ('./routes/users'))
 
 app.use(typeError);
 
