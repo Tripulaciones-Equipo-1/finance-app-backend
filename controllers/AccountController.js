@@ -7,7 +7,7 @@ require("dotenv").config();
 const AccountController = {
   //crear Account
   create(req, res, next) {
-    Account.create({ ...req.body })
+    Account.create({ ...req.body, owner: req.user._id })
       .then((account) =>
         res.status(201).send({ message: "Cuenta creada con éxito", account }),
       )

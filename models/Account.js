@@ -7,7 +7,7 @@ const AccountSchema = new mongoose.Schema(
       type: String,
       required: [true, "Por favor asigna un alias a la cuenta"],
     },
-    user: [{ type: ObjectId, ref: "User" }],
+    owner: { type: ObjectId, ref: "User" },
 
     balance: {
       type: Number,
