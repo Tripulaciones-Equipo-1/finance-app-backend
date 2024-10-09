@@ -1,23 +1,23 @@
+const Transaction = require("../models/Transaction");
 const Account = require("../models/Account");
-const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
-const AccountController = {
-  //crear Account
+const TransactionController = {
+  //crear Transaction
   async create(req, res, next) {
     try {
-      const account = await Account.create({
+      const account = req.user.account;
+      const transaction = await Transaction.create({
         ...req.body,
-        owner: req.user._id,
+        account: account,
       });
-
-      await User.findByIdAndUpdate(req.user._id, {
-        $push: { account: account._id },
+      await Account.findByIdAndUpdate(account, {
+        $push: { transactions: transaction._id },
       }),
-        res.status(201).send({ message: "Cuenta creada con éxito", account });
+        res.status(201).send({ message: "transaccion realizada", transaction });
     } catch (error) {
       error.origin = "account";
       next(error);
@@ -31,29 +31,29 @@ const AccountController = {
         alias: req.body.alias,
       };
 
-      await Account.findOneAndUpdate({ _id: req.params._id }, account);
+      await Transaction.findOneAndUpdate({ _id: req.params._id }, account);
 
-      res.send("Account actualizado con éxito");
+      res.send("Transaction actualizado con éxito");
     } catch (error) {
       console.log(error);
     }
   },
 
-  //borrar Account
+  //borrar Transaction
   async delete(req, res) {
     try {
-      await Account.findByIdAndDelete({
+      await Transaction.findByIdAndDelete({
         _id: req.params._id,
       });
-      res.send({ message: "Account has been removed" });
+      res.send({ message: "Transaction has been removed" });
     } catch (error) {
       console.log(error);
     }
   },
 
-  // ver todos Accounts
+  // ver todos Transactions
   getAll(req, res) {
-    Account.find({})
+    Transaction.find({})
       .then((accounts) => res.send(accounts))
       .catch((err) => {
         console.log(err);
@@ -66,39 +66,41 @@ const AccountController = {
   //get by id
   async getById(req, res) {
     try {
-      const account = await Account.findById(req.params._id);
+      const account = await Transaction.findById(req.params._id);
       console.log(account);
       if (!account) {
-        res.status(500).send({ message: "Account no encontrado" });
+        res.status(500).send({ message: "Transaction no encontrado" });
       }
       res.send(account);
     } catch {
       (err) => {
         console.log(err);
         res.status(500).send({
-          message: "Account no encontrado",
+          message: "Transaction no encontrado",
         });
       };
     }
   },
 
-  // buscar Account por alias
+  // buscar Transaction por alias
 
   async getOneByName(req, res, next) {
     try {
-      const account = await Account.findOne({ alias: req.params.alias }).exec();
+      const account = await Transaction.findOne({
+        alias: req.params.alias,
+      }).exec();
       if (!account) {
-        res.status(500).send({ message: "Account no encontrado" });
+        res.status(500).send({ message: "Transaction no encontrado" });
       }
       res.send(account);
     } catch {
       (err) => {
         console.log(err);
         res.status(500).send({
-          message: "Account no encontrado",
+          message: "Transaction no encontrado",
         });
       };
     }
   },
 };
-module.exports = AccountController;
+module.exports = TransactionController;
