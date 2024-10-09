@@ -11,7 +11,7 @@ const AccountSchema = new mongoose.Schema(
 
     balance: {
       type: Number,
-      required: [true],
+      default: 0,
     },
 
     transactions: [{ type: ObjectId, ref: "Transactions" }],

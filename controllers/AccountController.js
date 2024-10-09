@@ -16,24 +16,22 @@ const AccountController = {
         next(err);
       });
   },
-  /* 
-  //actualizar user
+
+  //actualizar account
   async update(req, res) {
     try {
-      const user = {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-        age: req.body.age,
+      const account = {
+        alias: req.body.alias,
       };
 
-      await Account.findOneAndUpdate({ _id: req.params._id }, user);
+      await Account.findOneAndUpdate({ _id: req.params._id }, account);
 
       res.send("Account actualizado con éxito");
     } catch (error) {
       console.log(error);
     }
   },
+
   //borrar Account
   async delete(req, res) {
     try {
@@ -44,7 +42,7 @@ const AccountController = {
     } catch (error) {
       console.log(error);
     }
-  }, */
+  },
 
   // ver todos Accounts
   getAll(req, res) {
@@ -57,44 +55,43 @@ const AccountController = {
         });
       });
   },
-  /* 
 
   //get by id
   async getById(req, res) {
     try {
-      const user = await Account.findById(req.params._id)
-        .populate("commentId", "body")
-        .populate("mylikes", "body");
-      res.send(user);
+      const account = await Account.findById(req.params._id);
+      console.log(account);
+      if (!account) {
+        res.status(500).send({ message: "Account no encontrado" });
+      }
+      res.send(account);
     } catch {
       (err) => {
         console.log(err);
         res.status(500).send({
-          message: "Usuario no encontrado",
+          message: "Account no encontrado",
         });
       };
     }
   },
- */
-  /* 
-  // buscar Account por nombre
-  //HECHO PERO FALTA MENSAJE CUANDO NO CONSIGUE USUARIO
+
+  // buscar Account por alias
+
   async getOneByName(req, res, next) {
     try {
-      const user = await Account.findOne(
-        { name: req.params.name },
-        "name age",
-      ).exec();
-      res.send(user);
+      const account = await Account.findOne({ alias: req.params.alias }).exec();
+      if (!account) {
+        res.status(500).send({ message: "Account no encontrado" });
+      }
+      res.send(account);
     } catch {
       (err) => {
         console.log(err);
         res.status(500).send({
-          message: "Usuario no encontrado",
+          message: "Account no encontrado",
         });
       };
     }
   },
- */
 };
 module.exports = AccountController;
