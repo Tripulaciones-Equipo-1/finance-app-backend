@@ -35,12 +35,16 @@ const UserController = {
 
   async getAllAccounts(req, res) {
     try {
-      console.log(req.user);
-      res.send(req.user);
+      req.user;
+      const accounts = await User.findById(req.user._id, "accounts").populate(
+        "accounts",
+      );
+
+      res.send(accounts);
     } catch (error) {
       console.log(error);
       res.status(500).send({
-        message: "Ha habido un problema al cargar los usuarios",
+        message: "Ha habido un problema al cargar las cuentas",
       });
     }
   },

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ObjectId = mongoose.SchemaTypes.ObjectId;
 
 const UserSchema = new mongoose.Schema(
   {
@@ -21,7 +22,7 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       required: [true, "Por favor rellena tu dni"],
     },
-    account: [{ type: ObjectId, ref: "Account" }],
+    accounts: [{ type: ObjectId, ref: "Account" }],
     role: String,
 
     tokens: [],
