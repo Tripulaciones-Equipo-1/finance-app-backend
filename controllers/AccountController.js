@@ -15,7 +15,7 @@ const AccountController = {
       });
 
       await User.findByIdAndUpdate(req.user._id, {
-        $push: { account: account._id },
+        $push: { accounts: account._id },
       }),
         res.status(201).send({ message: "Cuenta creada con éxito", account });
     } catch (error) {
