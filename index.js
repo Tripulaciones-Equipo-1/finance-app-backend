@@ -28,5 +28,6 @@ app.use("/users", require("./routes/users"));
 app.use(typeError);
 
 app.use("/account", require("./routes/account.routes"));
+app.use("/transaction", require("./routes/transaction.routes"));
 
 runServer();

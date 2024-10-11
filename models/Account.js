@@ -14,7 +14,7 @@ const AccountSchema = new mongoose.Schema(
       default: 0,
     },
 
-    transactions: [{ type: ObjectId, ref: "Transactions" }],
+    transactions: [{ type: ObjectId, ref: "Transaction" }],
   },
   { timestamps: true },
 );
