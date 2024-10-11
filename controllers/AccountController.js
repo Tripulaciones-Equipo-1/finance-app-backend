@@ -53,7 +53,7 @@ const AccountController = {
 
   // ver todos Accounts
   getAll(req, res) {
-    Account.find({})
+    Account.find({ owner: req.user._id })
       .then((accounts) => res.send(accounts))
       .catch((err) => {
         console.log(err);
@@ -67,10 +67,16 @@ const AccountController = {
   async getById(req, res) {
     try {
       const account = await Account.findById(req.params._id);
-      console.log(account);
+      let userid = req.user._id;
+      let ownerid = account.owner;
+
       if (!account) {
         res.status(500).send({ message: "Account no encontrado" });
       }
+      if (userid == ownerid) {
+        res.status(500).send({ message: "Account no encontrado" });
+      }
+
       res.send(account);
     } catch {
       (err) => {
@@ -79,6 +85,22 @@ const AccountController = {
           message: "Account no encontrado",
         });
       };
+    }
+  },
+
+  async getAllTransactions(req, res) {
+    try {
+      const transactions = await Account.findById(
+        req.params._id,
+        "transactions",
+      ).populate("transactions");
+
+      res.send(transactions);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        message: "Ha habido un problema al cargar las transacciones",
+      });
     }
   },
 

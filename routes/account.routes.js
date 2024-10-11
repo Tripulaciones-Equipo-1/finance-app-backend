@@ -9,5 +9,10 @@ router.put("/id/:_id", authentication, AccountController.update);
 router.delete("/id/:_id", authentication, AccountController.delete);
 router.get("/id/:_id", authentication, AccountController.getById);
 router.get("/alias/:alias", authentication, AccountController.getOneByName);
+router.get(
+  "/transactions/:_id",
+  authentication,
+  AccountController.getAllTransactions,
+);
 
 module.exports = router;

@@ -19,7 +19,7 @@ const TransactionSchema = new mongoose.Schema(
       required: [true, "Por favor introduzca la cantidad"],
     },
 
-    account: { type: ObjectId, ref: "User" },
+    account: { type: ObjectId, ref: "Account" },
   },
   { timestamps: true },
 );

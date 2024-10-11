@@ -9,7 +9,8 @@ const TransactionController = {
   //crear Transaction
   async create(req, res, next) {
     try {
-      const account = req.user.account;
+      const account = req.params._id;
+
       const transaction = await Transaction.create({
         ...req.body,
         account: account,
