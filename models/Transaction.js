@@ -18,6 +18,13 @@ const TransactionSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Por favor introduzca la cantidad"],
     },
+    category: {
+      type: String,
+      required: [
+        true,
+        "Por favor ingrese la categoria a la que corresponde la transacción",
+      ],
+    },
 
     account: { type: ObjectId, ref: "Account" },
   },

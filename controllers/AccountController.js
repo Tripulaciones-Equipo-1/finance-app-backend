@@ -88,6 +88,7 @@ const AccountController = {
     }
   },
 
+  //ver transacciones
   async getAllTransactions(req, res) {
     try {
       const transactions = await Account.findById(

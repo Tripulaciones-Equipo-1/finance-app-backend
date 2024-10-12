@@ -15,8 +15,15 @@ const TransactionController = {
         ...req.body,
         account: account,
       });
+
+      const accountdata = await Account.findById(account);
+      const newvalue = accountdata.balance + transaction.value;
+
       await Account.findByIdAndUpdate(account, {
-        $push: { transactions: transaction._id },
+        balance: newvalue,
+        $push: {
+          transactions: transaction._id,
+        },
       }),
         res.status(201).send({ message: "transaccion realizada", transaction });
     } catch (error) {

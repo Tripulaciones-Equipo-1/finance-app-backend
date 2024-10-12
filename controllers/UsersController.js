@@ -33,6 +33,7 @@ const UserController = {
     }
   },
 
+  //ver las cuentas
   async getAllAccounts(req, res) {
     try {
       req.user;
