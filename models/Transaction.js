@@ -3,10 +3,6 @@ const ObjectId = mongoose.SchemaTypes.ObjectId;
 
 const TransactionSchema = new mongoose.Schema(
   {
-    from: {
-      type: String,
-      required: [true, "Por favor Ingrese origen de la transaccion"],
-    },
     to: {
       type: String,
       required: [
@@ -27,6 +23,33 @@ const TransactionSchema = new mongoose.Schema(
     },
 
     account: { type: ObjectId, ref: "Account" },
+
+    date: {
+      type: String,
+      default: () => {
+        let date = new Date();
+
+        let datetoday = date.toLocaleDateString();
+        return datetoday;
+      },
+    },
+    hour: {
+      type: String,
+      default: () => {
+        function addZero(i) {
+          if (i < 10) {
+            i = "0" + i;
+          }
+          return i;
+        }
+        let date = new Date();
+        let h = addZero(date.getHours());
+        let m = addZero(date.getMinutes());
+        let s = addZero(date.getSeconds());
+        let time = h + ":" + m + ":" + s;
+        return time;
+      },
+    },
   },
   { timestamps: true },
 );

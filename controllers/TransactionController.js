@@ -32,83 +32,16 @@ const TransactionController = {
     }
   },
 
-  //actualizar account
-  async update(req, res) {
-    try {
-      const account = {
-        alias: req.body.alias,
-      };
-
-      await Transaction.findOneAndUpdate({ _id: req.params._id }, account);
-
-      res.send("Transaction actualizado con éxito");
-    } catch (error) {
-      console.log(error);
-    }
-  },
-
-  //borrar Transaction
-  async delete(req, res) {
-    try {
-      await Transaction.findByIdAndDelete({
-        _id: req.params._id,
-      });
-      res.send({ message: "Transaction has been removed" });
-    } catch (error) {
-      console.log(error);
-    }
-  },
-
   // ver todos Transactions
   getAll(req, res) {
-    Transaction.find({})
-      .then((accounts) => res.send(accounts))
+    Transaction.find({ account: req.params._id })
+      .then((transactions) => res.send(transactions))
       .catch((err) => {
         console.log(err);
         res.status(500).send({
-          message: "Ha habido un problema al cargar las cuentas",
+          message: "Ha habido un problema al cargar las transacciones",
         });
       });
-  },
-
-  //get by id
-  async getById(req, res) {
-    try {
-      const account = await Transaction.findById(req.params._id);
-      console.log(account);
-      if (!account) {
-        res.status(500).send({ message: "Transaction no encontrado" });
-      }
-      res.send(account);
-    } catch {
-      (err) => {
-        console.log(err);
-        res.status(500).send({
-          message: "Transaction no encontrado",
-        });
-      };
-    }
-  },
-
-  // buscar Transaction por alias
-
-  async getOneByName(req, res, next) {
-    try {
-      const account = await Transaction.findOne({
-        alias: req.params.alias,
-      }).exec();
-      if (!account) {
-        res.status(500).send({ message: "Transaction no encontrado" });
-      }
-      res.send(account);
-    } catch {
-      (err) => {
-        console.log(err);
-        res.status(500).send({
-          message: "Transaction no encontrado",
-        });
-      };
-    }
   },
 };
 module.exports = TransactionController;
