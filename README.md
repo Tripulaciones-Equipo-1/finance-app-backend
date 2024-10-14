@@ -56,7 +56,7 @@ Ingresar en postman y utilizar las rutas necesarias para cada caso.
 
 ## Soporte
 
-Si tienes algún problema o sugerencia, por favor abre un problema [aquí](https://github.com/arnoldm94/RedSocial/issues).
+Si tienes algún problema o sugerencia, por favor abre un problema [aquí](https://github.com/Tripulaciones-Equipo-1/finance-app-backend/issues).
 
 ## Roadmap
 
@@ -68,7 +68,7 @@ Seguiremos implementando mejoras en lo que va de curso para optimizar el proceso
 - **Marjorie Gonzaga** - _Trabajo inicial_ - [Arnoldm94](https://github.com/MarjoAnabel)
 - **Zuhaitz Martinez** - _Trabajo inicial_ - [Arnoldm94](https://github.com/Zuhaitz)
 
-Mira también la lista de [contribuidores](https://github.com/contributors) que han participado en este proyecto.
+Mira también la lista de [contribuidores](https://github.com/Tripulaciones-Equipo-1/finance-app-backend/contributors) que han participado en este proyecto.
 
 ## Expresiones de Gratitud 🎁
 
