@@ -65,8 +65,8 @@ Seguiremos implementando mejoras en lo que va de curso para optimizar el proceso
 ## Autores ✒️
 
 - **Arnold Melet** - _Trabajo inicial_ - [Arnoldm94](https://github.com/arnoldm94)
-- **Marjorie x** - _Trabajo inicial_ - [Arnoldm94](https://github.com/)
-- **Zuhaitz x** - _Trabajo inicial_ - [Arnoldm94](https://github.com/)
+- **Marjorie Gonzaga** - _Trabajo inicial_ - [Arnoldm94](https://github.com/MarjoAnabel)
+- **Zuhaitz Martinez** - _Trabajo inicial_ - [Arnoldm94](https://github.com/Zuhaitz)
 
 Mira también la lista de [contribuidores](https://github.com/contributors) que han participado en este proyecto.
 
