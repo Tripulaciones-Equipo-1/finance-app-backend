@@ -26,32 +26,9 @@ const TransactionSchema = new mongoose.Schema(
 
     date: {
       type: String,
-      default: () => {
-        let date = new Date();
-
-        let datetoday = date.toLocaleDateString();
-        return datetoday;
-      },
-    },
-    hour: {
-      type: String,
-      default: () => {
-        function addZero(i) {
-          if (i < 10) {
-            i = "0" + i;
-          }
-          return i;
-        }
-        let date = new Date();
-        let h = addZero(date.getHours());
-        let m = addZero(date.getMinutes());
-        let s = addZero(date.getSeconds());
-        let time = h + ":" + m + ":" + s;
-        return time;
-      },
     },
   },
-  { timestamps: true },
+  { timestamps: false },
 );
 TransactionSchema.methods.toJSON = function () {
   const transaction = this._doc;

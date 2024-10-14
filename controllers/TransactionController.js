@@ -5,6 +5,37 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
+const date = () => {
+  let date = new Date();
+
+  let datetoday = date.toLocaleDateString();
+
+  let todaydate = datetoday.split("/");
+  datetoday = `${todaydate[2]}-${todaydate[1]}-${todaydate[0]} `;
+  console.log(datetoday);
+
+  return datetoday;
+};
+
+const hours = () => {
+  function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+  let date = new Date();
+  let h = addZero(date.getHours());
+  let m = addZero(date.getMinutes());
+  let s = addZero(date.getSeconds());
+  let time = h + ":" + m + ":" + s;
+  return time;
+};
+
+const datehour = () => {
+  return date() + "" + hours();
+};
+
 const TransactionController = {
   //crear Transaction
   async create(req, res, next) {
@@ -14,6 +45,7 @@ const TransactionController = {
       const transaction = await Transaction.create({
         ...req.body,
         account: account,
+        date: datehour(),
       });
 
       const accountdata = await Account.findById(account);
