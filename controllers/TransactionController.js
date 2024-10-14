@@ -12,7 +12,6 @@ const date = () => {
 
   let todaydate = datetoday.split("/");
   datetoday = `${todaydate[2]}-${todaydate[1]}-${todaydate[0]} `;
-  console.log(datetoday);
 
   return datetoday;
 };

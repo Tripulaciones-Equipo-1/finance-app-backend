@@ -3,7 +3,7 @@ const ObjectId = mongoose.SchemaTypes.ObjectId;
 
 const TransactionSchema = new mongoose.Schema(
   {
-    to: {
+    concept: {
       type: String,
       required: [
         true,
