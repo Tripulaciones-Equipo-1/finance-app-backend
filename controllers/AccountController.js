@@ -94,7 +94,7 @@ const AccountController = {
       const transactions = await Account.findById(
         req.params._id,
         "transactions",
-      ).populate("transactions");
+      ).populate({ path: "transactions", options: { sort: { date: -1 } } });
 
       res.send(transactions);
     } catch (error) {
