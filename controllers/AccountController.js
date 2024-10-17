@@ -93,8 +93,10 @@ const AccountController = {
     try {
       const transactions = await Account.findById(
         req.params._id,
-        "transactions",
-      ).populate({ path: "transactions", options: { sort: { date: -1 } } });
+        // "transactions",
+      )
+        .populate({ path: "transactions", options: { sort: { date: -1 } } })
+        .populate("owner", "dni email name");
 
       res.send(transactions);
     } catch (error) {
