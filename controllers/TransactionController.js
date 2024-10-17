@@ -3,6 +3,7 @@ const Account = require("../models/Account");
 const jwt = require("jsonwebtoken");
 
 const bcrypt = require("bcryptjs");
+const { getById } = require("./AccountController");
 require("dotenv").config();
 
 const date = () => {
@@ -94,6 +95,18 @@ const TransactionController = {
       return res
         .status(400)
         .send({ message: "error when getting user transactions", error });
+    }
+  },
+
+  async getById(req, res) {
+    try {
+      const transaction = await Transaction.findById(req.params._id);
+      res.send(transaction);
+    } catch (error) {
+      console.error(error);
+      return res
+        .status(400)
+        .send({ message: "error when getting transaction", error });
     }
   },
 };
