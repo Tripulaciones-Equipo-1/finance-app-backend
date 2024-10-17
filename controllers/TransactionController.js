@@ -74,5 +74,28 @@ const TransactionController = {
         });
       });
   },
+
+  async getLatest(req, res) {
+    try {
+      const { limit = 3 } = req.query;
+
+      const transactions = await Transaction.find()
+        .sort({ date: -1 })
+        .populate("account", "owner")
+        .lean();
+
+      const result = transactions.filter((data) => {
+        return data.account.owner.equals(req.user._id);
+      });
+
+      res.send(result.slice(0, limit));
+    } catch (error) {
+      console.error(error);
+      return res
+        .status(400)
+        .send({ message: "error when getting user transactions", error });
+    }
+  },
 };
+
 module.exports = TransactionController;
