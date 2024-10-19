@@ -1,82 +1,43 @@
-# finance-app-backend
+# Kutxabank Web App - Backend
 
-Backend de la app para Kutxabank
+Backend of app made for the bank company Kutxabank.
 
-## Descripción ⚙️
+You can find the frontend of the app [here](https://github.com/Tripulaciones-Equipo-1/finance-app-frontend).
 
-API para una pagina de Kutxa Bank en donde se han implementado diferentes herramientas para la elaboracion, control y seguridad de la misma
+## Authors
 
-## Visuales
+- [Arnold Melet](https://github.com/arnoldm94)
+- [Marjorie Gonzaga](https://github.com/MarjoAnabel)
+- [Zuhaitz Martínez](https://github.com/Zuhaitz)
 
-Estas son algunas imagenes de ejemplo de como se ve la base de datos
-![Base de datos con tablas](./img/)
-![Api desde dominio](./img/)
-![Trello para elaboracion del proyecto](./img/)
-![Postman de ejemplo para solicitudes](./img/)
-![Deploying on Railway](./img/)
+More [contributors](https://github.com/Tripulaciones-Equipo-1/finance-app-backend/contributors) to the funcionality of this app.
 
-## Empezando 🚀
+## Tech Stack
 
-Estas instrucciones te guiarán para obtener una copia de este proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
+**Server:** [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript), [Express](https://expressjs.com/), [Node.js](https://nodejs.org/en), [Chart.js](https://www.chartjs.org)
 
-### Prerrequisitos 📋
+## Run Locally
 
-Lista de software y herramientas, incluyendo versiones, que necesitas para instalar y ejecutar este proyecto:
-
-- "dotenv": "^16.4.5",
-- "express": "^4.19.2",
-- "jsonwebtoken": "^9.0.2",
-- "mongoose": "^8.4.5"
-- Javascript
-
-### Instalación 🔧
-
-*Una vez descargado el repositorio, realizar una instalacion de NPM para que descargue todas las dependencias mencionadas en el archivo JSON
-*Ejecutar el programa en un puerto definido para obtener respuesta en local en el servidor
+Clone the project
 
 ```bash
-# paso 1
-npm install
+  git clone https://github.com/Tripulaciones-Equipo-1/finance-app-backend.git
 ```
+
+Go to the project directory
 
 ```bash
-# paso 2 (para ejecutar como developer)
-npm run dev
+  cd finance-app-backend
 ```
 
-## Ejecutando los ejemplos ⚙️
+Install dependencies
 
-Ingresar en postman y utilizar las rutas necesarias para cada caso.
+```bash
+  npm install
+```
 
-## Construido Con 🛠️
+Start the server
 
-- [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript)
-- [Express](https://expressjs.com/)
-- [Node.js](https://nodejs.org/en)
-
-## Soporte
-
-Si tienes algún problema o sugerencia, por favor abre un problema [aquí](https://github.com/Tripulaciones-Equipo-1/finance-app-backend/issues).
-
-## Roadmap
-
-Seguiremos implementando mejoras en lo que va de curso para optimizar el proceso y sacar mas provecho de las herramientas
-
-## Autores ✒️
-
-- **Arnold Melet** - _Trabajo inicial_ - [Arnoldm94](https://github.com/arnoldm94)
-- **Marjorie Gonzaga** - _Trabajo inicial_ - [Arnoldm94](https://github.com/MarjoAnabel)
-- **Zuhaitz Martinez** - _Trabajo inicial_ - [Arnoldm94](https://github.com/Zuhaitz)
-
-Mira también la lista de [contribuidores](https://github.com/Tripulaciones-Equipo-1/finance-app-backend/contributors) que han participado en este proyecto.
-
-## Expresiones de Gratitud 🎁
-
-Estamos agradecidos por las contribuciones de instructores de TheBridge a este proyecto. Si encontraste cualquier valor en este proyecto o quieres contribuir, aquí está lo que puedes hacer:
-
-- Comparte este proyecto con otros
-- Invítanos un café ☕
-- Inicia un nuevo problema o contribuye con un PR
-- Muestra tu agradecimiento diciendo gracias en un nuevo problema.
-
----
+```bash
+  npm run dev
+```
