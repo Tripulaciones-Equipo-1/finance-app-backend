@@ -64,6 +64,22 @@ const TransactionController = {
     }
   },
 
+  async update(req, res) {
+    try {
+      const transaction = await Transaction.findByIdAndUpdate(
+        req.params._id,
+        { category: req.body.category },
+        { new: true },
+      );
+      res.send(transaction);
+    } catch (error) {
+      console.error(error);
+      return res
+        .status(400)
+        .send({ message: "error updating transaction", error });
+    }
+  },
+
   // ver todos Transactions
   getAll(req, res) {
     Transaction.find({ account: req.params._id })
