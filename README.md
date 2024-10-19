@@ -10,7 +10,7 @@ You can find the frontend of the app [here](https://github.com/Tripulaciones-Equ
 - [Marjorie Gonzaga](https://github.com/MarjoAnabel)
 - [Zuhaitz Martínez](https://github.com/Zuhaitz)
 
-More [contributors](https://github.com/Tripulaciones-Equipo-1/finance-app-backend/contributors) to the funcionality of this app.
+More [contributors](https://github.com/Tripulaciones-Equipo-1) to the functionality of this app.
 
 ## Tech Stack
 
