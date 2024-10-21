@@ -9,7 +9,10 @@ require("dotenv").config();
 const date = () => {
   let date = new Date();
 
-  let datetoday = date.toLocaleDateString();
+  var utcTime = date.getTime() + date.getTimezoneOffset() * 60000;
+  var timeOffset = 2;
+  var spainTime = new Date(utcTime + 3600000 * timeOffset);
+  let datetoday = spainTime.toLocaleDateString();
 
   let todaydate = datetoday.split("/");
   datetoday = `${todaydate[2]}-${todaydate[1]}-${todaydate[0]} `;
@@ -24,11 +27,17 @@ const hours = () => {
     }
     return i;
   }
+
   let date = new Date();
-  let h = addZero(date.getHours());
-  let m = addZero(date.getMinutes());
-  let s = addZero(date.getSeconds());
+  var utcTime = date.getTime() + date.getTimezoneOffset() * 60000;
+  var timeOffset = 2;
+  var spainTime = new Date(utcTime + 3600000 * timeOffset);
+
+  let h = addZero(spainTime.getHours());
+  let m = addZero(spainTime.getMinutes());
+  let s = addZero(spainTime.getSeconds());
   let time = h + ":" + m + ":" + s;
+
   return time;
 };
 
