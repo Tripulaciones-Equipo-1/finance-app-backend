@@ -12,10 +12,8 @@ const date = () => {
   var utcTime = date.getTime() + date.getTimezoneOffset() * 60000;
   var timeOffset = 2;
   var spainTime = new Date(utcTime + 3600000 * timeOffset);
-  let datetoday = spainTime.toLocaleDateString();
 
-  let todaydate = datetoday.split("/");
-  datetoday = `${todaydate[2]}-${todaydate[1]}-${todaydate[0]} `;
+  datetoday = spainTime.toISOString().split("T")[0];
 
   return datetoday;
 };
