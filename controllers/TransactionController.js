@@ -40,7 +40,7 @@ const hours = () => {
 };
 
 const datehour = () => {
-  return date() + "" + hours();
+  return date() + " " + hours();
 };
 
 const TransactionController = {
