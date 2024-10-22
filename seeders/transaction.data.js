@@ -7,7 +7,7 @@ const transactionsExamples = [
   },
   {
     concept: "bar pepe",
-    value: -20.8,
+    value: -20,
     category: "Ocio",
     date: "2024-10-10 12:00:00",
   },
@@ -19,7 +19,7 @@ const transactionsExamples = [
   },
   {
     concept: "bar pablo",
-    value: -30.2,
+    value: -30,
     category: "Ocio",
     date: "2024-10-17 12:00:00",
   },
@@ -43,7 +43,7 @@ const transactionsExamples = [
   },
   {
     concept: "Compra en Carrefour",
-    value: -98.6,
+    value: -98,
     category: "Hogar",
     date: "2024-10-05 12:00:00",
   },
