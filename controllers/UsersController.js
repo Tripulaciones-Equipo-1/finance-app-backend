@@ -33,6 +33,36 @@ const UserController = {
     }
   },
 
+  async update(req, res) {
+    try {
+      const user = await User.findByIdAndUpdate(
+        req.params._id,
+        { ...req.body },
+        { new: true },
+      );
+
+      res.send(user);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        message: "Problem updating user",
+      });
+    }
+  },
+
+  async delete(req, res) {
+    try {
+      const user = await User.findByIdAndDelete(req.params._id);
+
+      res.send(user);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        message: "Problem updating user",
+      });
+    }
+  },
+
   //ver las cuentas
   async getAllAccounts(req, res) {
     try {
