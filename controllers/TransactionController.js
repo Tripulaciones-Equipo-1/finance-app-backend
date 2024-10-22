@@ -63,8 +63,9 @@ const TransactionController = {
         $push: {
           transactions: transaction._id,
         },
-      }),
-        res.status(201).send({ message: "transaccion realizada", transaction });
+      });
+
+      res.status(201).send({ message: "transaccion realizada", transaction });
     } catch (error) {
       error.origin = "account";
       next(error);

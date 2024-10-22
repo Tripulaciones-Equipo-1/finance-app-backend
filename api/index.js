@@ -3,12 +3,15 @@ require("dotenv").config();
 const express = require("express");
 const dbConnection = require("../config/database");
 const { typeError } = require("../middlewares/errors");
+const { transactionSeeder } = require("../seeders/transaction.seeder");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const runServer = async () => {
   await dbConnection();
+
+  // transactionSeeder();
 
   app.listen(PORT, () => console.log(`Server listening to port ${PORT}...`));
 };

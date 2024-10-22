@@ -108,7 +108,6 @@ const AccountController = {
   },
 
   // buscar Account por alias
-
   async getOneByName(req, res, next) {
     try {
       const account = await Account.findOne({ alias: req.params.alias }).exec();
