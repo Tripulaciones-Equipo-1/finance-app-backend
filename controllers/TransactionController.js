@@ -133,6 +133,20 @@ const TransactionController = {
         .send({ message: "error when getting transaction", error });
     }
   },
+
+  async delete(req, res) {
+    try {
+      const transaction = await Transaction.findByIdAndDelete(req.params._id);
+      // const transaction = await Transaction.deleteMany();
+
+      res.send(transaction);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        message: "Problem deleting transaction",
+      });
+    }
+  },
 };
 
 module.exports = TransactionController;

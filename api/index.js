@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const runServer = async () => {
   await dbConnection();
 
-  // transactionSeeder();
+  /* transactionSeeder(); */
 
   app.listen(PORT, () => console.log(`Server listening to port ${PORT}...`));
 };
