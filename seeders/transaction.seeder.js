@@ -2,7 +2,7 @@ const Account = require("../models/Account");
 const Transaction = require("../models/Transaction");
 const { transactionsExamples } = require("./transaction.data");
 
-const account = "670a44e791d5e19c99abe9d5";
+const account = "6717b4743b265efed89d5c81";
 
 const transactionSeeder = async () => {
   console.log("Uploading transactions...");
